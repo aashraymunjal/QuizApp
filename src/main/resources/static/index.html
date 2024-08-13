@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Optional: Add your styles -->
+  </head>
+  <body>
+    <h1>Quiz Application</h1>
+
+    <h2>All Questions</h2>
+    <table id="questionsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Question Title</th>
+          <th>Option 1</th>
+          <th>Option 2</th>
+          <th>Option 3</th>
+          <th>Option 4</th>
+          <th>Right Answer</th>
+          <th>Difficulty Level</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="questionsTableBody"></tbody>
+    </table>
+
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" required />
+    <button id="fetchByCategory">Fetch Questions</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

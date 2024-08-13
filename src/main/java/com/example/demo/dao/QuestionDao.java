@@ -11,7 +11,7 @@ import com.example.demo.model.Question;
 @Repository
 public interface QuestionDao extends JpaRepository<Question, Integer> {
 
-	List<Question> findByCategory(String Category);
+	List<Question> findByCategory(String category);
 
 	@Query(value = "SELECT * FROM QUESTION WHERE CATEGORY = :category AND NAME = :name", nativeQuery = true)
 	public List<Question> findbycategoryandname(String category, String name);
