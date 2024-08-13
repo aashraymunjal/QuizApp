@@ -36,11 +36,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.munjal</groupId>
-			<artifactId>Property_Management</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 				<!-- https://mvnrepository.com/artifact/org.meanbean/meanbean -->
 		<dependency>
 			<groupId>org.meanbean</groupId>
