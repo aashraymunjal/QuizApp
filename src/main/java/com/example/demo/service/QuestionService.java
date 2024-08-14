@@ -18,7 +18,6 @@ public class QuestionService {
 	@Autowired
 	QuestionDao dao;
 
-	
 	public List<Question> getAllQuestions() {
 		return dao.findAll();
 	}
@@ -42,14 +41,14 @@ public class QuestionService {
 		}
 
 	}
-	
 
-	
 	public Question upadteQuestion(int id, Question question) {
 
 		if (dao.findById(id).isPresent()) {
 			Optional<Question> temp = dao.findById(id);
 			Question saved = temp.get();
+			saved.setQuestion_title(question.getQuestion_title());
+			saved.setRight_answer(question.getRight_answer());
 			saved.setCategory(question.getCategory());
 			saved.setDifficulty_level(question.getDifficulty_level());
 			saved.setOption1(question.getOption1());
