@@ -5,34 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz Application</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- Optional: Add your styles -->
   </head>
   <body>
     <h1>Quiz Application</h1>
 
-    <h2>All Questions</h2>
-    <table id="questionsTable">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Question Title</th>
-          <th>Option 1</th>
-          <th>Option 2</th>
-          <th>Option 3</th>
-          <th>Option 4</th>
-          <th>Right Answer</th>
-          <th>Difficulty Level</th>
-          <th>Category</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="questionsTableBody"></tbody>
-    </table>
+    <section>
+      <h2>All Questions</h2>
+      <table id="questionsTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Question Title</th>
+            <th>Option 1</th>
+            <th>Option 2</th>
+            <th>Option 3</th>
+            <th>Option 4</th>
+            <th>Right Answer</th>
+            <th>Difficulty Level</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="questionsTableBody"></tbody>
+      </table>
+    </section>
 
-    <label for="category">Category:</label>
-    <input type="text" id="category" name="category" required />
-    <button id="fetchByCategory">Fetch Questions</button>
+    <section class="category-container">
+      <h2>Find Questions by Category</h2>
+      <label for="category">Category:</label>
+      <input type="text" id="category" name="category" required />
+      <button id="fetchByCategory">Fetch Questions</button>
+    </section>
 
+    <section>
+      <h2>Add New Question</h2>
+      <form id="addQuestionForm">
+        <label for="questionTitle">Question Title:</label>
+        <input type="text" id="questionTitle" name="questionTitle" required />
+
+        <label for="option1">Option 1:</label>
+        <input type="text" id="option1" name="option1" required />
+
+        <label for="option2">Option 2:</label>
+        <input type="text" id="option2" name="option2" required />
+
+        <label for="option3">Option 3:</label>
+        <input type="text" id="option3" name="option3" required />
+
+        <label for="option4">Option 4:</label>
+        <input type="text" id="option4" name="option4" required />
+
+        <label for="rightAnswer">Right Answer:</label>
+        <input type="text" id="rightAnswer" name="rightAnswer" required />
+
+        <label for="difficultyLevel">Difficulty Level:</label>
+        <input
+          type="text"
+          id="difficultyLevel"
+          name="difficultyLevel"
+          required
+        />
+
+        <label for="categoryInput">Category:</label>
+        <input type="text" id="categoryInput" name="categoryInput" required />
+
+        <button type="submit">Add Question</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Update Question</h2>
+      <form id="updateQuestionForm">
+        <label for="updateId">ID:</label>
+        <input type="number" id="updateId" name="updateId" required />
+
+        <label for="updateQuestionTitle">Question Title:</label>
+        <input
+          type="text"
+          id="updateQuestionTitle"
+          name="updateQuestionTitle"
+          required
+        />
+
+        <label for="updateOption1">Option 1:</label>
+        <input type="text" id="updateOption1" name="updateOption1" required />
+
+        <label for="updateOption2">Option 2:</label>
+        <input type="text" id="updateOption2" name="updateOption2" required />
+
+        <label for="updateOption3">Option 3:</label>
+        <input type="text" id="updateOption3" name="updateOption3" required />
+
+        <label for="updateOption4">Option 4:</label>
+        <input type="text" id="updateOption4" name="updateOption4" required />
+
+        <label for="updateRightAnswer">Right Answer:</label>
+        <input
+          type="text"
+          id="updateRightAnswer"
+          name="updateRightAnswer"
+          required
+        />
+
+        <label for="updateDifficultyLevel">Difficulty Level:</label>
+        <input
+          type="text"
+          id="updateDifficultyLevel"
+          name="updateDifficultyLevel"
+          required
+        />
+
+        <label for="updateCategory">Category:</label>
+        <input type="text" id="updateCategory" name="updateCategory" required />
+
+        <button type="submit">Update Question</button>
+      </form>
+    </section>
     <script src="script.js"></script>
   </body>
 </html>
