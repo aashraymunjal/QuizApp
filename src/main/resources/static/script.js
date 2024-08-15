@@ -4,12 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const categoryInput = document.getElementById("category");
   const addQuestionForm = document.getElementById("addQuestionForm");
   const updateQuestionForm = document.getElementById("updateQuestionForm");
+  const quizCreationForm = document.getElementById("quizCreationForm");
 
   const apiURLFetchQuestions = "http://localhost:8080/allquestions";
   const apiURLDeleteQuestion = "http://localhost:8080/delete";
   const apiURLAddQuestion = "http://localhost:8080/add";
   const apiURLUpdateQuestion = "http://localhost:8080/update";
-  const apiURLFetchQuestionById = "http://localhost:8080/question";
+  const apiURLCreateQuiz = "http://localhost:8080/quiz/create";
 
   function fetchQuestions() {
     fetch(apiURLFetchQuestions)
@@ -140,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
   updateQuestionForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Check if the form elements exist before accessing their values
     const updateId = document.getElementById("updateId");
     const updateQuestionTitle = document.getElementById("updateQuestionTitle");
     const updateOption1 = document.getElementById("updateOption1");
@@ -194,6 +194,33 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       console.error("One or more form elements are missing.");
     }
+  });
+
+  quizCreationForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const formData = new FormData(quizCreationForm);
+    const queryParams = new URLSearchParams({
+      title: formData.get("quizTitle"),
+      category: formData.get("quizCategory"),
+      numQ: formData.get("numQuestions"),
+    });
+
+    fetch(apiURLCreateQuiz + "?" + queryParams.toString(), {
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.id) {
+          alert(`Quiz created successfully! Quiz ID: ${data.id}`);
+        } else {
+          alert("Quiz created successfully, but no ID was returned.");
+        }
+        quizCreationForm.reset(); // Reset form fields
+      })
+      .catch((error) => {
+        console.error("Error creating quiz:", error);
+      });
   });
 
   // Fetch questions initially
